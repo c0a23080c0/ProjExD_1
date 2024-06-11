@@ -16,6 +16,8 @@ def main():
     tmr = 0
     kouk_rct = kouk_img.get_rect()
     kouk_rct.center =  300 , 200
+    tate = 0
+    yoko = -1
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -27,16 +29,17 @@ def main():
         screen.blit(se_bg_img, [-x+4800, 0])
 
         key_lst = pg.key.get_pressed()
-        kouk_rct.move_ip(-1,0)
         if key_lst[pg.K_UP]:
-            kouk_rct.move_ip(0, -1)
+            tate = -1
         if key_lst[pg.K_DOWN]:
-            kouk_rct.move_ip(0, +1)
+            tate = 1
         if key_lst[pg.K_RIGHT]:
-            kouk_rct.move_ip(+3, 0)
+            yoko = 1
         if key_lst[pg.K_LEFT]:
-            kouk_rct.move_ip(-1, 0)
-
+            yoko = -2
+        kouk_rct.move_ip(yoko,tate)
+        tate = 0
+        yoko = -1
         screen.blit(kouk_img,kouk_rct)
         pg.display.update()
         tmr += 1        
