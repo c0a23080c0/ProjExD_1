@@ -27,12 +27,13 @@ def main():
         screen.blit(se_bg_img, [-x+4800, 0])
 
         key_lst = pg.key.get_pressed()
+        kouk_rct.move_ip(-1,0)
         if key_lst[pg.K_UP]:
             kouk_rct.move_ip(0, -1)
         if key_lst[pg.K_DOWN]:
             kouk_rct.move_ip(0, +1)
         if key_lst[pg.K_RIGHT]:
-            kouk_rct.move_ip(+1, 0)
+            kouk_rct.move_ip(+3, 0)
         if key_lst[pg.K_LEFT]:
             kouk_rct.move_ip(-1, 0)
 
